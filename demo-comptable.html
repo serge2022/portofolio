@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beauchamp & Associés — Cabinet comptable CPA · Montréal</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{--ink:#0F0D0A;--paper:#F7F4EE;--rule:#D4CEBC;--mid:#726858;--light:#A89E8A;--blue:#1A3F7A;--gold:#8B6914}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden}
+
+/* NAV — journal header */
+nav{background:var(--paper);border-bottom:3px double var(--ink);padding:0 6%}
+.nav-top{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--rule);font-size:.72rem;color:var(--light)}
+.nav-top strong{color:var(--ink)}
+.nav-main{display:flex;justify-content:space-between;align-items:center;padding:.9rem 0}
+.nav-logo{text-align:center;flex:1}
+.nav-logo-name{font-family:'Libre Baskerville',serif;font-size:1.6rem;font-weight:700;color:var(--ink);letter-spacing:.01em;display:block}
+.nav-logo-tagline{font-family:'Libre Baskerville',serif;font-style:italic;font-size:.72rem;color:var(--mid);letter-spacing:.06em;margin-top:.1rem}
+.nav-left,.nav-right{display:flex;gap:1.8rem;list-style:none;flex:1}
+.nav-right{justify-content:flex-end}
+.nav-left a,.nav-right a{font-size:.75rem;color:var(--mid);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+.nav-left a:hover,.nav-right a:hover{color:var(--ink)}
+.nav-cta-link{font-weight:500;color:var(--blue)!important;border:1px solid var(--blue);padding:.3rem .8rem}
+
+/* HERO — premiere de journal */
+#hero{background:var(--paper);border-bottom:3px double var(--ink);padding:4rem 6% 3.5rem}
+.hero-inner{max-width:1050px;margin:0 auto}
+.hero-kicker{font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold);padding-bottom:.2rem;margin-bottom:1.4rem;display:inline-block}
+.hero-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:4rem;align-items:start}
+h1{font-family:'Libre Baskerville',serif;font-size:clamp(2.8rem,5vw,4.6rem);font-weight:700;line-height:1.02;letter-spacing:-.01em;color:var(--ink);margin-bottom:.8rem}
+h1 em{font-style:italic;font-weight:400}
+.hero-deck{font-size:1.05rem;color:var(--mid);line-height:1.7;font-weight:300;border-top:1px solid var(--rule);padding-top:1rem;margin-bottom:1.5rem;max-width:560px}
+.hero-byline{font-size:.75rem;color:var(--light);letter-spacing:.04em;margin-bottom:2rem}
+.hero-byline strong{color:var(--ink)}
+.hero-btns{display:flex;gap:1rem}
+.btn-ink{background:var(--ink);color:var(--paper);font-size:.78rem;font-weight:500;padding:.75rem 1.7rem;text-decoration:none;letter-spacing:.04em;transition:opacity .2s}
+.btn-ink:hover{opacity:.8}
+.btn-border{border:1px solid var(--ink);color:var(--ink);font-size:.78rem;padding:.75rem 1.7rem;text-decoration:none;letter-spacing:.04em;transition:background .2s}
+.btn-border:hover{background:rgba(15,13,10,.06)}
+.hero-sidebar{border-left:1px solid var(--rule);padding-left:2rem}
+.hero-sidebar-title{font-family:'Libre Baskerville',serif;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:.35rem;margin-bottom:1.2rem}
+.hs-item{padding:.6rem 0;border-bottom:1px solid var(--rule);display:flex;align-items:baseline;gap:.6rem}
+.hs-dot{width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:.35rem}
+.hs-text{font-family:'Libre Baskerville',serif;font-size:.83rem;color:var(--ink);line-height:1.4}
+.hero-cpa-badge{margin-top:1.5rem;background:var(--ink);color:var(--paper);padding:.6rem .9rem;font-size:.7rem;font-weight:500;letter-spacing:.08em;text-align:center}
+
+/* COLONNES ── */
+.pad{padding:4.5rem 6%}
+.pad-sm{padding:3.5rem 6%}
+.max{max-width:1050px;margin:0 auto}
+.col-rule{border-top:1px solid var(--rule);padding-top:1.5rem;margin-bottom:2.5rem;display:flex;justify-content:space-between;align-items:baseline}
+.col-rule-label{font-family:'Libre Baskerville',serif;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+.col-rule-num{font-size:.68rem;color:var(--light)}
+h2{font-family:'Libre Baskerville',serif;font-size:clamp(1.9rem,3vw,2.6rem);font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:.75rem}
+h2 em{font-style:italic;font-weight:400;color:var(--mid)}
+
+/* SERVICES — dense columns */
+#services{background:var(--paper);border-top:3px double var(--ink);border-bottom:1px solid var(--rule)}
+.services-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-left:1px solid var(--rule)}
+.svc-col{padding:1.8rem;border-right:1px solid var(--rule)}
+.svc-col:last-child{}
+.svc-col-header{font-family:'Libre Baskerville',serif;font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold);padding-bottom:.35rem;margin-bottom:1.2rem}
+.svc-list-dense{display:flex;flex-direction:column;gap:0}
+.svc-item{padding:.65rem 0;border-bottom:1px solid var(--rule);font-size:.83rem;color:var(--ink);line-height:1.45;font-family:'Libre Baskerville',serif;display:flex;gap:.5rem;align-items:baseline}
+.svc-item::before{content:'—';font-size:.7rem;color:var(--rule);flex-shrink:0}
+.svc-item:last-child{border-bottom:none}
+
+/* ÉQUIPE — directory style */
+#equipe{background:#EFEDE5;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.team-directory{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--rule);margin-top:2rem}
+.tdir-row{display:grid;grid-template-columns:80px 1fr 1fr 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--rule);align-items:start}
+.tdir-photo{width:72px;height:72px;overflow:hidden;border-radius:0;filter:sepia(.3)}
+.tdir-photo img{width:100%;height:100%;object-fit:cover;object-position:top}
+.tdir-name{font-family:'Libre Baskerville',serif;font-size:1.05rem;font-weight:700;color:var(--ink)}
+.tdir-title{font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin:.25rem 0 .5rem}
+.tdir-cred{font-size:.78rem;color:var(--mid);font-weight:300;border:1px solid var(--rule);display:inline-block;padding:.15rem .6rem;font-family:'Libre Baskerville',serif;font-style:italic}
+.tdir-bio{font-size:.82rem;color:var(--mid);line-height:1.65;font-weight:300;font-family:'Libre Baskerville',serif}
+.tdir-spec-label{font-size:.65rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--light);margin-bottom:.4rem}
+.tdir-spec-list{font-size:.8rem;color:var(--ink);line-height:1.8;font-family:'Libre Baskerville',serif}
+
+/* CONTACT — 2 cols */
+#contact{background:var(--paper);border-top:3px double var(--ink)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.contact-left h2{margin-bottom:.75rem}
+.contact-left p{font-size:.9rem;color:var(--mid);line-height:1.8;font-weight:300;margin-bottom:2rem}
+.ci-table{border-top:1px solid var(--rule)}
+.ci-row{display:flex;gap:1.5rem;padding:.9rem 0;border-bottom:1px solid var(--rule)}
+.ci-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--light);min-width:80px;padding-top:.1rem}
+.ci-val{font-size:.85rem;color:var(--ink);line-height:1.55;font-family:'Libre Baskerville',serif}
+.contact-form{}
+.form-section-title{font-family:'Libre Baskerville',serif;font-size:1rem;font-weight:700;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:.4rem;margin-bottom:1.5rem}
+.fg{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.85rem}
+.fg label{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--light)}
+.fg input,.fg select,.fg textarea{background:transparent;border:none;border-bottom:1px solid var(--rule);padding:.6rem 0;font-family:'IBM Plex Sans',sans-serif;font-size:.88rem;color:var(--ink);outline:none;transition:border-color .2s;-webkit-appearance:none;border-radius:0}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-bottom-color:var(--blue)}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--rule)}
+.fg select option{background:var(--paper)}
+.fg-2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.btn-contact{background:var(--ink);color:var(--paper);border:none;padding:.85rem 2rem;font-family:'IBM Plex Sans',sans-serif;font-size:.8rem;font-weight:500;letter-spacing:.08em;cursor:pointer;margin-top:.5rem;transition:opacity .2s}
+.btn-contact:hover{opacity:.8}
+
+footer{background:var(--ink);padding:2rem 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-name{font-family:'Libre Baskerville',serif;font-style:italic;font-size:1rem;color:rgba(247,244,238,.7)}
+.foot-copy{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(247,244,238,.25)}
+
+@media(max-width:768px){
+  .nav-left,.nav-right{display:none}
+  nav{border-bottom:2px solid var(--ink)}
+  .hero-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-sidebar{border-left:none;border-top:1px solid var(--rule);padding:1.5rem 0 0;margin-top:1.5rem}
+  .services-cols{grid-template-columns:1fr}
+  .svc-col{border-right:none;border-bottom:1px solid var(--rule)}
+  .tdir-row{grid-template-columns:60px 1fr}
+  .tdir-bio,.tdir-spec-label,.tdir-spec-list{display:none}
+  .fg-2{grid-template-columns:1fr}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-top">
+    <span>Montréal, Québec — <strong>Jeudi 11 juin 2026</strong></span>
+    <span>Cabinet comptable · Membre CPA Québec</span>
+    <span>514 288-6600</span>
+  </div>
+  <div class="nav-main">
+    <ul class="nav-left">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#equipe">Équipe</a></li>
+    </ul>
+    <div class="nav-logo">
+      <span class="nav-logo-name">Beauchamp & Associés</span>
+      <span class="nav-logo-tagline">Cabinet comptable certifié · CPA · Fondé en 2008</span>
+    </div>
+    <ul class="nav-right">
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="nav-cta-link">Consultation gratuite</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-kicker">Fiscalité · Comptabilité · Planification</div>
+    <div class="hero-grid">
+      <div>
+        <h1>La rigueur<br>comptable au<br>service de <em>votre croissance.</em></h1>
+        <p class="hero-deck">Fondé à Montréal en 2008, Beauchamp & Associés accompagne 340 clients — PME, entrepreneurs et travailleurs autonomes — avec des conseils fiscaux et comptables sur mesure. Pas de jargon. Pas de facture surprise.</p>
+        <p class="hero-byline">Cabinet fondé par <strong>Martin Beauchamp, CPA CA</strong> · 16 ans d'expérience · Anciennement Deloitte</p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn-ink">Consultation gratuite →</a>
+          <a href="#services" class="btn-border">Nos services</a>
+        </div>
+      </div>
+      <div class="hero-sidebar">
+        <div class="hero-sidebar-title">Domaines d'expertise</div>
+        <div class="hs-item"><div class="hs-dot"></div><div class="hs-text">Déclarations d'impôts T1 et T2</div></div>
+        <div class="hs-item"><div class="hs-dot"></div><div class="hs-text">Comptabilité et tenue de livres</div></div>
+        <div class="hs-item"><div class="hs-dot"></div><div class="hs-text">Planification fiscale et successorale</div></div>
+        <div class="hs-item"><div class="hs-dot"></div><div class="hs-text">Incorporation et structuration</div></div>
+        <div class="hs-item"><div class="hs-dot"></div><div class="hs-text">Paie et gestion RH externalisée</div></div>
+        <div class="hs-item"><div class="hs-dot"></div><div class="hs-text">TPS/TVQ · Représentation ARC/Revenu QC</div></div>
+        <div class="hs-item"><div class="hs-dot"></div><div class="hs-text">Crédits R&D et programmes gouvernementaux</div></div>
+        <div class="hero-cpa-badge">Membres de l'Ordre des CPA du Québec</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="pad">
+  <div class="max">
+    <div class="col-rule"><div class="col-rule-label">Nos services</div><div class="col-rule-num">Section 01</div></div>
+    <h2>Ce que nous <em>offrons</em></h2>
+    <p style="font-size:.9rem;color:var(--mid);font-weight:300;line-height:1.8;max-width:550px;margin-bottom:2.5rem">Des services comptables et fiscaux complets pour chaque étape de votre parcours d'entrepreneur — du démarrage à la transmission.</p>
+    <div class="services-cols">
+      <div class="svc-col">
+        <div class="svc-col-header">Impôts & Déclarations</div>
+        <div class="svc-list-dense">
+          <div class="svc-item">Déclarations T1 — particuliers</div>
+          <div class="svc-item">Déclarations T2 — sociétés</div>
+          <div class="svc-item">Optimisation fiscale maximale</div>
+          <div class="svc-item">Planification des retraits</div>
+          <div class="svc-item">Dividendes vs salaire</div>
+          <div class="svc-item">Représentation ARC / Revenu QC</div>
+        </div>
+      </div>
+      <div class="svc-col">
+        <div class="svc-col-header">Comptabilité & Gestion</div>
+        <div class="svc-list-dense">
+          <div class="svc-item">Tenue de livres mensuelle</div>
+          <div class="svc-item">États financiers trimestriels</div>
+          <div class="svc-item">Remises TPS/TVQ</div>
+          <div class="svc-item">Traitement de la paie</div>
+          <div class="svc-item">Portail client en ligne</div>
+          <div class="svc-item">Logiciels : QuickBooks, Sage</div>
+        </div>
+      </div>
+      <div class="svc-col">
+        <div class="svc-col-header">Conseil & Structuration</div>
+        <div class="svc-list-dense">
+          <div class="svc-item">Incorporation et structure juridique</div>
+          <div class="svc-item">Planification successorale</div>
+          <div class="svc-item">Crédits R&D (RS&DE)</div>
+          <div class="svc-item">Budgets prévisionnels</div>
+          <div class="svc-item">Accompagnement financement</div>
+          <div class="svc-item">Due diligence financière</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="equipe" class="pad">
+  <div class="max">
+    <div class="col-rule"><div class="col-rule-label">Notre équipe</div><div class="col-rule-num">Section 02</div></div>
+    <h2>Les CPA qui <em>gèrent vos chiffres</em></h2>
+    <div class="team-directory">
+      <div class="tdir-row">
+        <div class="tdir-photo"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&auto=format&fit=crop&q=80" alt="Martin Beauchamp"></div>
+        <div><div class="tdir-name">Martin Beauchamp</div><div class="tdir-title">Associé fondateur</div><div class="tdir-cred">CPA, CA</div></div>
+        <div class="tdir-bio">20 ans d'expérience en fiscalité d'entreprise et planification successorale. Ancien directeur fiscal chez Deloitte Montréal. Passionné par les stratégies de sortie et la transmission d'entreprises familiales.</div>
+        <div><div class="tdir-spec-label">Spécialités</div><div class="tdir-spec-list">Fiscalité d'entreprise<br>Planification successorale<br>Fusions & acquisitions</div></div>
+      </div>
+      <div class="tdir-row">
+        <div class="tdir-photo"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80" alt="Isabelle Nguyen"></div>
+        <div><div class="tdir-name">Isabelle Nguyen</div><div class="tdir-title">Associée</div><div class="tdir-cred">CPA, CGA · DESS Fiscalité McGill</div></div>
+        <div class="tdir-bio">Spécialisée dans les PME technologiques et les crédits R&D. Maîtrise en fiscalité internationale de McGill. Elle a aidé 40+ startups à optimiser leurs remboursements RS&DE.</div>
+        <div><div class="tdir-spec-label">Spécialités</div><div class="tdir-spec-list">PME technologiques<br>Crédits RS&DE<br>Fiscalité internationale</div></div>
+      </div>
+      <div class="tdir-row">
+        <div class="tdir-photo"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" alt="David Côté"></div>
+        <div><div class="tdir-name">David Côté</div><div class="tdir-title">Comptable senior</div><div class="tdir-cred">CPA · Spéc. TPS/TVQ</div></div>
+        <div class="tdir-bio">Expert en taxes à la consommation et représentation devant Revenu Québec. 12 ans dans la restauration et le commerce de détail. Aucune cotisation imprévue ne lui passe entre les mains.</div>
+        <div><div class="tdir-spec-label">Spécialités</div><div class="tdir-spec-list">TPS / TVQ<br>Restauration & détail<br>Vérifications fiscales</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="pad">
+  <div class="max">
+    <div class="col-rule"><div class="col-rule-label">Contact</div><div class="col-rule-num">Section 03</div></div>
+    <div class="contact-grid">
+      <div class="contact-left">
+        <h2>Consultation<br><em>gratuite de 30 min</em></h2>
+        <p>Sans engagement, pour évaluer vos besoins et vous présenter nos honoraires — transparents et annoncés à l'avance. Pas de facturation à l'heure cachée.</p>
+        <div class="ci-table">
+          <div class="ci-row"><div class="ci-label">Adresse</div><div class="ci-val">1000 rue De La Gauchetière O., Bureau 2400<br>Montréal, QC H3B 4W5</div></div>
+          <div class="ci-row"><div class="ci-label">Heures</div><div class="ci-val">Lundi–Vendredi, 8h30–17h30<br>Saison impôts : aussi le samedi 9h–14h</div></div>
+          <div class="ci-row"><div class="ci-label">Téléphone</div><div class="ci-val">514 288-6600</div></div>
+          <div class="ci-row"><div class="ci-label">Courriel</div><div class="ci-val">info@beauchampassocies.ca</div></div>
+          <div class="ci-row"><div class="ci-label">Rencontre</div><div class="ci-val">En présentiel ou par vidéoconférence (Zoom, Teams)</div></div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-section-title">Demande de consultation</div>
+        <form onsubmit="onContact(event)">
+          <div class="fg-2">
+            <div class="fg"><label>Prénom</label><input type="text" placeholder="Prénom" required></div>
+            <div class="fg"><label>Nom</label><input type="text" placeholder="Nom" required></div>
+          </div>
+          <div class="fg"><label>Courriel</label><input type="email" placeholder="vous@entreprise.ca" required></div>
+          <div class="fg"><label>Téléphone</label><input type="tel" placeholder="514 000-0000"></div>
+          <div class="fg"><label>Vous êtes</label>
+            <select required><option value="">—</option><option>Particulier</option><option>Travailleur autonome</option><option>PME (moins de 20 employés)</option><option>Entreprise (20+ employés)</option></select></div>
+          <div class="fg"><label>Service souhaité</label>
+            <select><option value="">—</option><option>Déclaration d'impôts</option><option>Tenue de livres</option><option>Incorporation</option><option>Crédits R&D</option><option>Représentation fiscale</option><option>Autre</option></select></div>
+          <div class="fg"><label>Message</label><textarea rows="4" placeholder="Décrivez votre situation ou vos questions…"></textarea></div>
+          <button type="submit" class="btn-contact">Demander une consultation →</button>
+          <p style="font-size:.7rem;color:var(--light);margin-top:.75rem">Réponse sous 1 jour ouvrable.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-name">Beauchamp & Associés — Cabinet comptable CPA</div>
+  <div class="foot-copy">© 2026 · Membres Ordre CPA Québec · Montréal</div>
+</footer>
+
+<script>
+function onContact(e){e.preventDefault();const b=e.target.querySelector('.btn-contact');b.textContent='✓ Demande reçue — réponse sous 1 jour ouvrable';b.style.background='#1A3F7A';}
+</script>
+</body>
+</html>

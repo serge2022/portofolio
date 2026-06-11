@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trattoria Milano — Restaurant Italien Authentique · Montréal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Jost',sans-serif;background:#0A0704;color:#F0EAE0;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:1.6rem 5%;display:flex;justify-content:space-between;align-items:center;mix-blend-mode:normal}
+nav::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,7,4,.8),transparent);pointer-events:none;z-index:-1}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:#F0EAE0;text-decoration:none}
+.logo i{font-style:italic;color:#C4965A}
+.nav-r{display:flex;align-items:center;gap:2.5rem}
+.nav-r a{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,234,224,.55);text-decoration:none;transition:color .25s}
+.nav-r a:hover{color:#F0EAE0}
+.nav-r a.reserve{border:1px solid rgba(196,150,90,.5);padding:.4rem 1.1rem;color:#C4965A;transition:all .25s}
+.nav-r a.reserve:hover{background:#C4965A;color:#0A0704;border-color:#C4965A}
+
+/* ── HERO PLEIN ÉCRAN ── */
+#hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:flex-end;padding:0 5% 7%}
+.hero-photo{position:absolute;inset:0;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:cover;filter:brightness(.45) saturate(1.1);transform-origin:center;animation:slow-zoom 14s ease-in-out infinite alternate}
+@keyframes slow-zoom{from{transform:scale(1)}to{transform:scale(1.07)}}
+.hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,transparent 30%,rgba(10,7,4,.85) 100%)}
+.hero-content{position:relative;z-index:1;max-width:780px}
+.hero-tag{font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:#C4965A;margin-bottom:1.8rem;display:flex;align-items:center;gap:.9rem}
+.hero-tag::before{content:'';display:inline-block;width:40px;height:1px;background:#C4965A}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(4rem,9vw,8.5rem);font-weight:300;line-height:.92;letter-spacing:-.01em;color:#F0EAE0;margin-bottom:2rem}
+h1 em{font-style:italic;color:#C4965A;display:block}
+.hero-sub{font-size:.9rem;color:rgba(240,234,224,.55);font-weight:300;line-height:1.85;max-width:400px;margin-bottom:3rem;letter-spacing:.02em}
+.hero-ctas{display:flex;gap:1.2rem;align-items:center}
+.cta-main{background:#C4965A;color:#0A0704;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;padding:.9rem 2.2rem;text-decoration:none;transition:opacity .25s}
+.cta-main:hover{opacity:.85}
+.cta-sec{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,234,224,.55);text-decoration:none;display:flex;align-items:center;gap:.6rem;transition:color .25s}
+.cta-sec:hover{color:#F0EAE0}
+.cta-sec::after{content:'↓'}
+
+/* ── BANDE MILIEU ── */
+.strip{background:#C4965A;padding:.9rem 5%;display:flex;gap:4rem;overflow:hidden;white-space:nowrap}
+.strip-item{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:#0A0704;opacity:.85;flex-shrink:0}
+.strip-sep{opacity:.4;flex-shrink:0}
+
+/* ── SECTIONS COMMUNES ── */
+.pad{padding:8rem 5%}
+.pad-sm{padding:5rem 5%}
+.max{max-width:1100px;margin:0 auto}
+.section-label{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:#C4965A;margin-bottom:1.2rem;display:flex;align-items:center;gap:.8rem}
+.section-label::after{content:'';display:inline-block;width:30px;height:1px;background:#C4965A}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,5rem);font-weight:300;line-height:1;letter-spacing:-.01em;margin-bottom:1.5rem}
+h2 em{font-style:italic;color:#C4965A}
+
+/* ── HISTOIRE ── */
+#histoire{background:#0D0A06}
+.histoire-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:6rem;align-items:center}
+.histoire-img{position:relative}
+.histoire-img img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:saturate(.85)}
+.histoire-img::before{content:'1987';position:absolute;bottom:-1.5rem;right:-1.5rem;font-family:'Cormorant Garamond',serif;font-size:8rem;font-weight:300;color:#C4965A;opacity:.12;line-height:1;z-index:0;pointer-events:none}
+.histoire-text p{font-size:.93rem;color:rgba(240,234,224,.6);font-weight:300;line-height:1.95;margin-bottom:1.2rem;max-width:460px}
+.histoire-text p strong{color:#F0EAE0;font-weight:400}
+.stat-row{display:flex;gap:3rem;margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(240,234,224,.08)}
+.stat strong{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:#C4965A;display:block;line-height:1}
+.stat span{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,234,224,.35);margin-top:.3rem;display:block}
+
+/* ── MENU VERTICAL ── */
+#menu{background:#0A0704}
+.menu-layout{display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:start}
+.menu-nav-sticky{position:sticky;top:8rem}
+.menu-nav-item{display:block;font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;font-style:italic;color:rgba(240,234,224,.25);text-decoration:none;padding:.5rem 0;border-bottom:1px solid rgba(240,234,224,.07);transition:color .25s;cursor:pointer;letter-spacing:.01em}
+.menu-nav-item.active,.menu-nav-item:hover{color:#C4965A}
+.menu-content-area{}
+.menu-cat{display:none;animation:fadein .35s ease}
+.menu-cat.active{display:block}
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.menu-item{display:flex;justify-content:space-between;align-items:baseline;padding:1.4rem 0;border-bottom:1px solid rgba(240,234,224,.07);gap:2rem}
+.menu-item:first-child{border-top:1px solid rgba(240,234,224,.07)}
+.item-info{}
+.item-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:#F0EAE0;margin-bottom:.35rem}
+.item-desc{font-size:.8rem;color:rgba(240,234,224,.4);font-weight:300;line-height:1.6;max-width:360px}
+.item-price{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:#C4965A;white-space:nowrap;flex-shrink:0}
+
+/* ── GALERIE ASYMÉTRIQUE ── */
+#galerie{background:#0D0A06;padding:6rem 0}
+.galerie-title{padding:0 5%;margin-bottom:3rem}
+.galerie-mosaic{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:300px 300px;gap:3px}
+.gp{overflow:hidden}
+.gp img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease,filter .7s ease;filter:saturate(.8)}
+.gp:hover img{transform:scale(1.05);filter:saturate(1.1)}
+.gp.tall{grid-row:1/3}
+
+/* ── RÉSERVATION ── */
+#reservation{background:linear-gradient(135deg,#1A0F06 0%,#0A0704 60%)}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center}
+.res-left h2{margin-bottom:1rem}
+.res-left p{font-size:.9rem;color:rgba(240,234,224,.5);font-weight:300;line-height:1.85;margin-bottom:2.5rem}
+.res-info-list{display:flex;flex-direction:column;gap:1.4rem}
+.ri{display:flex;gap:1.3rem;align-items:flex-start}
+.ri-label{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:#C4965A;margin-bottom:.3rem}
+.ri-val{font-size:.87rem;color:rgba(240,234,224,.65);font-weight:300;line-height:1.6}
+.res-form{display:flex;flex-direction:column;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:.4rem}
+.fg label{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,234,224,.35)}
+.fg input,.fg select,.fg textarea{background:rgba(240,234,224,.04);border:none;border-bottom:1px solid rgba(240,234,224,.15);padding:.75rem 0;font-family:'Jost',sans-serif;font-size:.88rem;color:#F0EAE0;outline:none;transition:border-color .25s;-webkit-appearance:none;border-radius:0}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-bottom-color:#C4965A}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(240,234,224,.2)}
+.fg select option{background:#1A0F06}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.btn-res{margin-top:.5rem;background:transparent;border:1px solid #C4965A;color:#C4965A;font-family:'Jost',sans-serif;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;padding:1rem 2rem;cursor:pointer;transition:all .25s;align-self:flex-start}
+.btn-res:hover{background:#C4965A;color:#0A0704}
+
+/* ── FOOTER ── */
+footer{background:#06040200;border-top:1px solid rgba(240,234,224,.08);padding:2.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;background:#0A0704}
+.foot-logo{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(240,234,224,.4)}
+.foot-copy{font-size:.7rem;letter-spacing:.08em;color:rgba(240,234,224,.2);text-transform:uppercase}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav-r .nav-links{display:none}
+  h1{font-size:clamp(3rem,13vw,5rem)}
+  .histoire-grid,.res-grid,.menu-layout{grid-template-columns:1fr}
+  .galerie-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px 200px}
+  .gp.tall{grid-row:auto}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="logo">Trattoria <i>Milano</i></a>
+  <div class="nav-r">
+    <a href="#histoire">Histoire</a>
+    <a href="#menu">Menu</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#reservation" class="reserve">Réserver</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-photo">
+    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&auto=format&fit=crop&q=85" alt="Table dressée Trattoria Milano">
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag">Montréal · Plateau-Mont-Royal · Depuis 1987</div>
+    <h1>La cuisine<br><em>de la nonna</em></h1>
+    <p class="hero-sub">Trente-sept ans de passion pour la cuisine bolognaise. Des pâtes faites chaque matin, une burrata qui arrive de Puglia deux fois par semaine, et une salle de 45 couverts qui sent le ragù.</p>
+    <div class="hero-ctas">
+      <a href="#reservation" class="cta-main">Réserver une table</a>
+      <a href="#menu" class="cta-sec">Voir le menu</a>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <span class="strip-item">Pâtes fraîches maison</span><span class="strip-sep">·</span>
+  <span class="strip-item">Burrata de Puglia</span><span class="strip-sep">·</span>
+  <span class="strip-item">Vins naturels italiens</span><span class="strip-sep">·</span>
+  <span class="strip-item">Ouvert mar–dim · 17h30</span><span class="strip-sep">·</span>
+  <span class="strip-item">514 842-7890</span><span class="strip-sep">·</span>
+  <span class="strip-item">Réservation recommandée</span><span class="strip-sep">·</span>
+</div>
+
+<!-- HISTOIRE -->
+<section id="histoire">
+  <div class="pad max">
+    <div class="histoire-grid">
+      <div class="histoire-img">
+        <img src="https://images.unsplash.com/photo-1551183053-bf91798d454c?w=700&auto=format&fit=crop&q=80" alt="Pâtes fraîches maison">
+      </div>
+      <div class="histoire-text">
+        <div class="section-label">Notre histoire</div>
+        <h2>Famille Rossi<br><em>depuis 1987</em></h2>
+        <p>Marco et Elena Rossi ont quitté Bologne avec leurs recettes, leur vaisselle et une seule conviction : <strong>ne jamais couper sur la qualité.</strong></p>
+        <p>Trente-sept ans plus tard, leurs fils Luca et Paolo perpétuent cette tradition dans la même salle du Plateau — les murs ont changé de couleur, la recette du ragù, jamais.</p>
+        <p>Les pâtes sont roulées chaque matin à 7h. La burrata arrive de Puglia le mardi et le vendredi. Le vrai tiramisù de la nonna Elena n'a pas bougé d'un gramme.</p>
+        <div class="stat-row">
+          <div class="stat"><strong>37</strong><span>Ans d'histoire</span></div>
+          <div class="stat"><strong>45</strong><span>Couverts</span></div>
+          <div class="stat"><strong>100%</strong><span>Fait maison</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="pad max">
+    <div class="section-label">La carte</div>
+    <h2 style="margin-bottom:4rem">Le menu<br><em>du moment</em></h2>
+    <div class="menu-layout">
+      <div class="menu-nav-sticky">
+        <div class="menu-nav-item active" onclick="showCat('antipasti',this)">Antipasti</div>
+        <div class="menu-nav-item" onclick="showCat('primi',this)">Primi piatti</div>
+        <div class="menu-nav-item" onclick="showCat('secondi',this)">Secondi</div>
+        <div class="menu-nav-item" onclick="showCat('dolci',this)">Dolci</div>
+      </div>
+      <div class="menu-content-area">
+        <div class="menu-cat active" id="antipasti">
+          <div class="menu-item"><div class="item-info"><div class="item-name">Burrata di Puglia</div><div class="item-desc">Tomates rôties au four, basilic frais, huile d'olive AOP Sicile</div></div><div class="item-price">18 $</div></div>
+          <div class="menu-item"><div class="item-info"><div class="item-name">Carpaccio di manzo</div><div class="item-desc">Filet de bœuf tranché, roquette sauvage, Parmigiano 24 mois, truffe noire</div></div><div class="item-price">22 $</div></div>
+          <div class="menu-item"><div class="item-info"><div class="item-name">Polpette della nonna</div><div class="item-desc">Boulettes de veau braisées, sauce tomate longue, ricotta salata</div></div><div class="item-price">17 $</div></div>
+          <div class="menu-item"><div class="item-info"><div class="item-name">Bruschetta al pomodoro</div><div class="item-desc">Tomates San Marzano, ail confit, pain maison grillé (×4)</div></div><div class="item-price">14 $</div></div>
+        </div>
+        <div class="menu-cat" id="primi">
+          <div class="menu-item"><div class="item-info"><div class="item-name">Tagliatelle al ragù bolognese</div><div class="item-desc">Pâtes fraîches maison, ragù de bœuf et veau mijoté 6 heures</div></div><div class="item-price">28 $</div></div>
+          <div class="menu-item"><div class="item-info"><div class="item-name">Risotto ai porcini e tartufo</div><div class="item-desc">Riz carnaroli, cèpes frais et séchés, truffe noire, Parmigiano</div></div><div class="item-price">32 $</div></div>
+          <div class="menu-item"><div class="item-info"><div class="item-name">Spaghetti alle vongole</div><div class="item-desc">Palourdes de l'Atlantique, ail, persil, vin blanc, piment de Calabre</div></div><div class="item-price">31 $</div></div>
+          <div class="menu-item"><div class="item-info"><div class="item-name">Pici cacio e pepe</div><div class="item-desc">Pâtes épaisses roulées main, Pecorino Romano affiné, poivre noir de Tellicherry</div></div><div class="item-price">24 $</div></div>
+        </div>
+        <div class="menu-cat" id="secondi">
+          <div class="menu-item"><div class="item-info"><div class="item-name">Saltimbocca alla romana</div><div class="item-desc">Escalope de veau, prosciutto di Parma 18 mois, sauge fraîche, jus de marsala</div></div><div class="item-price">38 $</div></div>
+          <div class="menu-item"><div class="item-info"><div class="item-name">Branzino al forno intero</div><div class="item-desc">Bar entier rôti en croûte de sel, câpres de Pantelleria, citron confit</div></div><div class="item-price">42 $</div></div>
+          <div class="menu-item"><div class="item-info"><div class="item-name">Bistecca fiorentina</div><div class="item-desc">T-bone Wagyu 500g, romarin, ail, huile de Sicile, sel de Maldon — mi-saignant uniquement</div></div><div class="item-price">58 $</div></div>
+        </div>
+        <div class="menu-cat" id="dolci">
+          <div class="menu-item"><div class="item-info"><div class="item-name">Tiramisù della nonna Elena</div><div class="item-desc">Recette originale depuis 1987 — mascarpone, savoiardi, espresso fort, cacao Valrhona</div></div><div class="item-price">12 $</div></div>
+          <div class="menu-item"><div class="item-info"><div class="item-name">Cannoli siciliani</div><div class="item-desc">Ricotta fraîche, zeste d'orange confit, pistache de Bronte (×2)</div></div><div class="item-price">11 $</div></div>
+          <div class="menu-item"><div class="item-info"><div class="item-name">Gelato artigianale</div><div class="item-desc">Pistache, stracciatella ou nocciola — fait maison chaque matin (3 boules)</div></div><div class="item-price">9 $</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie">
+  <div class="galerie-title max">
+    <div class="section-label">En images</div>
+    <h2>La salle,<br><em>les plats</em></h2>
+  </div>
+  <div class="galerie-mosaic">
+    <div class="gp tall"><img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3b28?w=900&auto=format&fit=crop&q=80" alt="Ambiance restaurant"></div>
+    <div class="gp"><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600&auto=format&fit=crop&q=80" alt="Pasta"></div>
+    <div class="gp"><img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=600&auto=format&fit=crop&q=80" alt="Risotto"></div>
+    <div class="gp"><img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=600&auto=format&fit=crop&q=80" alt="Viande"></div>
+    <div class="gp"><img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600&auto=format&fit=crop&q=80" alt="Tiramisu"></div>
+  </div>
+</section>
+
+<!-- RÉSERVATION -->
+<section id="reservation">
+  <div class="pad max">
+    <div class="res-grid">
+      <div class="res-left">
+        <div class="section-label">Réservation</div>
+        <h2>Réserver<br><em>votre table</em></h2>
+        <p>45 couverts, salle intime. Le week-end se remplit tôt — nous vous conseillons de réserver au moins 3 jours à l'avance.</p>
+        <div class="res-info-list">
+          <div class="ri"><div><div class="ri-label">Adresse</div><div class="ri-val">4215 rue Saint-Denis, Plateau-Mont-Royal<br>Montréal, QC H2J 2K9</div></div></div>
+          <div class="ri"><div><div class="ri-label">Heures</div><div class="ri-val">Mar–Jeu 17h30–22h · Ven–Sam 17h–23h · Dim 17h–21h30<br>Fermé le lundi</div></div></div>
+          <div class="ri"><div><div class="ri-label">Contact</div><div class="ri-val">514 842-7890 · info@trattoriamilano.ca</div></div></div>
+        </div>
+      </div>
+      <form class="res-form" onsubmit="onRes(event)">
+        <div class="fg-row">
+          <div class="fg"><label>Prénom et nom</label><input type="text" placeholder="Marco Tremblay" required></div>
+          <div class="fg"><label>Téléphone</label><input type="tel" placeholder="514 000-0000" required></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label>Date</label><input type="date" required></div>
+          <div class="fg"><label>Heure</label>
+            <select required><option value="">—</option><option>17h30</option><option>18h00</option><option>18h30</option><option>19h00</option><option>19h30</option><option>20h00</option><option>20h30</option><option>21h00</option></select>
+          </div>
+        </div>
+        <div class="fg"><label>Nombre de personnes</label>
+          <select required><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option></select>
+        </div>
+        <div class="fg"><label>Courriel</label><input type="email" placeholder="vous@email.com" required></div>
+        <div class="fg"><label>Notes (allergies, occasion…)</label><textarea placeholder="Allergie aux fruits à coque, anniversaire de mariage…" rows="3"></textarea></div>
+        <button type="submit" class="btn-res">Confirmer la réservation</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">Trattoria Milano · 1987</div>
+  <div class="foot-copy">© 2026 — 4215 rue Saint-Denis, Montréal</div>
+</footer>
+
+<script>
+document.querySelectorAll('.menu-nav-item').forEach(el=>{el.style.cursor='pointer'});
+function showCat(id,el){
+  document.querySelectorAll('.menu-cat').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('.menu-nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+}
+function onRes(e){
+  e.preventDefault();
+  const b=e.target.querySelector('.btn-res');
+  b.textContent='✓ Réservation confirmée';
+  b.style.background='#C4965A';b.style.color='#0A0704';b.style.borderColor='#C4965A';
+}
+// Subtle scroll fade
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.style.opacity='1'}),{threshold:.07});
+document.querySelectorAll('section').forEach(s=>{s.style.opacity='0';s.style.transition='opacity .7s ease';io.observe(s)});
+</script>
+</body>
+</html>
