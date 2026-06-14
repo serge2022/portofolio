@@ -28,6 +28,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links a:hover{color:var(--ink)}
 .nav-cta{background:var(--ink);color:var(--bg)!important;padding:0.5rem 1.2rem;border-radius:6px;font-weight:500!important}
 .nav-cta:hover{opacity:0.85}
+.nav-lang{display:flex;align-items:center;border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-left:.5rem}
+.lang-btn{background:none;border:none;padding:.35rem .75rem;font-size:.75rem;font-weight:600;color:var(--mid);cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;letter-spacing:.04em}
+.lang-btn.active{background:var(--ink);color:var(--bg)}
 
 /* HERO */
 #hero{min-height:100vh;display:flex;align-items:center;padding:9rem 6% 6rem;border-bottom:1px solid var(--border)}
@@ -154,11 +157,15 @@ footer{padding:2rem 6%;display:flex;justify-content:space-between;align-items:ce
 <nav>
   <a href="#hero" class="nav-logo">Serge Folly Sanou</a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#projets">Projets</a></li>
-    <li><a href="#apropos">À propos</a></li>
-    <li><a href="#contact" class="nav-cta">Me contacter</a></li>
+    <li><a href="#services" data-fr="Services" data-en="Services">Services</a></li>
+    <li><a href="#projets" data-fr="Projets" data-en="Projects">Projets</a></li>
+    <li><a href="#apropos" data-fr="À propos" data-en="About">À propos</a></li>
+    <li><a href="#contact" class="nav-cta" data-fr="Me contacter" data-en="Contact me">Me contacter</a></li>
   </ul>
+  <div class="nav-lang">
+    <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr">FR</button>
+    <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -166,28 +173,28 @@ footer{padding:2rem 6%;display:flex;justify-content:space-between;align-items:ce
   <div class="hero-inner">
     <div class="hero-eyebrow">
       <div class="avail-dot"></div>
-      Disponible pour nouveaux projets · Gatineau / Montréal
+      <span data-fr="Disponible pour nouveaux projets · Gatineau / Montréal" data-en="Available for new projects · Gatineau / Montreal">Disponible pour nouveaux projets · Gatineau / Montréal</span>
     </div>
-    <h1>Développeur web & IA.<br><em>Diplômé. Freelance.</em></h1>
+    <h1 data-fr="Développeur web & IA.<br><em>Diplômé. Freelance.</em>" data-en="Web & AI Developer.<br><em>Graduated. Freelance.</em>">Développeur web & IA.<br><em>Diplômé. Freelance.</em></h1>
     <p class="hero-lead">
-      Je conçois des <strong>applications web</strong> et des <strong>outils IA</strong> pour les entreprises qui veulent automatiser, moderniser ou lancer leur présence en ligne. Diplôme universitaire en informatique. Basé à Gatineau, Québec.
+      <span data-fr="Je conçois des <strong>applications web</strong> et des <strong>outils IA</strong> pour les entreprises qui veulent automatiser, moderniser ou lancer leur présence en ligne. Diplôme universitaire en informatique. Basé à Gatineau, Québec." data-en="I build <strong>web applications</strong> and <strong>AI tools</strong> for businesses that want to automate, modernize, or launch their online presence. Computer Science degree. Based in Gatineau, Quebec.">Je conçois des <strong>applications web</strong> et des <strong>outils IA</strong> pour les entreprises qui veulent automatiser, moderniser ou lancer leur présence en ligne. Diplôme universitaire en informatique. Basé à Gatineau, Québec.</span>
     </p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-dark">Démarrer un projet →</a>
-      <a href="#projets" class="btn-outline">Voir mes réalisations</a>
+      <a href="#contact" class="btn-dark" data-fr="Démarrer un projet →" data-en="Start a project →">Démarrer un projet →</a>
+      <a href="#projets" class="btn-outline" data-fr="Voir mes réalisations" data-en="View my work">Voir mes réalisations</a>
     </div>
     <div class="hero-creds">
       <div class="cred-item">
         <div class="cred-val">B.Sc.</div>
-        <div class="cred-label">Informatique</div>
+        <div class="cred-label" data-fr="Informatique" data-en="Computer Science">Informatique</div>
       </div>
       <div class="cred-item">
         <div class="cred-val">4+</div>
-        <div class="cred-label">Projets livrés</div>
+        <div class="cred-label" data-fr="Projets livrés" data-en="Projects delivered">Projets livrés</div>
       </div>
       <div class="cred-item">
-        <div class="cred-val">IA</div>
-        <div class="cred-label">Intégration OpenAI</div>
+        <div class="cred-val">AI</div>
+        <div class="cred-label" data-fr="Intégration OpenAI" data-en="OpenAI Integration">Intégration OpenAI</div>
       </div>
     </div>
   </div>
@@ -199,8 +206,8 @@ footer{padding:2rem 6%;display:flex;justify-content:space-between;align-items:ce
     <div class="degree-left">
       <div class="degree-icon">🎓</div>
       <div class="degree-text">
-        <div class="degree-title">Baccalauréat en informatique</div>
-        <div class="degree-sub">Formation universitaire complète · Génie logiciel · Algorithmes · Bases de données · Réseaux</div>
+        <div class="degree-title" data-fr="Baccalauréat en informatique" data-en="Bachelor's in Computer Science">Baccalauréat en informatique</div>
+        <div class="degree-sub" data-fr="Formation universitaire complète · Génie logiciel · Algorithmes · Bases de données · Réseaux" data-en="Full university degree · Software Engineering · Algorithms · Databases · Networks">Formation universitaire complète · Génie logiciel · Algorithmes · Bases de données · Réseaux</div>
       </div>
     </div>
     <div class="degree-tags">
@@ -217,52 +224,44 @@ footer{padding:2rem 6%;display:flex;justify-content:space-between;align-items:ce
 <section id="services">
   <div class="section-inner">
     <div class="section-header fade-in">
-      <div class="section-num">01 — Services</div>
-      <h2>Ce que je construis</h2>
-      <p class="section-sub">Des livrables concrets, des délais tenus, des prix fixes.</p>
+      <div class="section-num" data-fr="01 — Services" data-en="01 — Services">01 — Services</div>
+      <h2 data-fr="Ce que je construis" data-en="What I build">Ce que je construis</h2>
+      <p class="section-sub" data-fr="Des livrables concrets, des délais tenus, des prix fixes." data-en="Concrete deliverables, met deadlines, fixed prices.">Des livrables concrets, des délais tenus, des prix fixes.</p>
     </div>
-    <div class="services-list fade-in">
-      <div class="service-row">
-        <div>
-          <div class="srv-name">Application web sur mesure</div>
-          <div class="srv-desc">Portail client, tableau de bord, outil interne. Architecture propre, code documenté.</div>
+      <div class="services-list fade-in">
+          <div class="service-row">
+            <div>
+              <div class="srv-name" data-fr="Application web sur mesure" data-en="Custom web application">Application web sur mesure</div>
+              <div class="srv-desc" data-fr="Portail client, tableau de bord, outil interne. Architecture propre, code documenté." data-en="Client portal, dashboard, internal tool. Clean architecture, documented code.">Portail client, tableau de bord, outil interne. Architecture propre, code documenté.</div>
+            </div>
+            <div class="srv-tags"><span class="stag">React</span><span class="stag">Node.js</span><span class="stag">Supabase</span></div>
+            <div class="srv-price">3 000 – 10 000 $</div>
+          </div>
+          <div class="service-row">
+            <div>
+              <div class="srv-name" data-fr="Intégration IA & automatisation" data-en="AI integration & automation">Intégration IA & automatisation</div>
+              <div class="srv-desc" data-fr="Chatbot, agent IA, traitement de données, pipelines automatisés pour PME." data-en="Chatbot, AI agent, data processing, automated pipelines for SMBs.">Chatbot, agent IA, traitement de données, pipelines automatisés pour PME.</div>
+            </div>
+            <div class="srv-tags"><span class="stag">OpenAI API</span><span class="stag">Python</span><span class="stag">n8n</span></div>
+            <div class="srv-price">1 200 – 5 000 $</div>
+          </div>
+          <div class="service-row">
+            <div>
+              <div class="srv-name" data-fr="Site vitrine professionnel" data-en="Professional business website">Site vitrine professionnel</div>
+              <div class="srv-desc" data-fr="Site rapide, optimisé SEO, livré clé en main. Facile à gérer après livraison." data-en="Fast, SEO-optimized, delivered turnkey. Easy to manage after delivery.">Site rapide, optimisé SEO, livré clé en main. Facile à gérer après livraison.</div>
+            </div>
+            <div class="srv-tags"><span class="stag">WordPress</span><span class="stag">Webflow</span><span class="stag">SEO</span></div>
+            <div class="srv-price">1 500 – 3 000 $</div>
+          </div>
+          <div class="service-row">
+            <div>
+              <div class="srv-name" data-fr="Maintenance & support mensuel" data-en="Monthly maintenance & support">Maintenance & support mensuel</div>
+              <div class="srv-desc" data-fr="Mises à jour, corrections, évolutions. Contrat mensuel sans surprise." data-en="Updates, fixes, improvements. Monthly contract, no surprises.">Mises à jour, corrections, évolutions. Contrat mensuel sans surprise.</div>
+            </div>
+            <div class="srv-tags"><span class="stag">Support</span><span class="stag">Sécurité</span></div>
+            <div class="srv-price">150 – 300 $ / <span data-fr="mois" data-en="month">mois</span></div>
+          </div>
         </div>
-        <div class="srv-tags">
-          <span class="stag">React</span><span class="stag">Node.js</span><span class="stag">Supabase</span>
-        </div>
-        <div class="srv-price">3 000 – 10 000 $</div>
-      </div>
-      <div class="service-row">
-        <div>
-          <div class="srv-name">Intégration IA & automatisation</div>
-          <div class="srv-desc">Chatbot, agent IA, traitement de données, pipelines automatisés pour PME.</div>
-        </div>
-        <div class="srv-tags">
-          <span class="stag">OpenAI API</span><span class="stag">Python</span><span class="stag">n8n</span>
-        </div>
-        <div class="srv-price">1 200 – 5 000 $</div>
-      </div>
-      <div class="service-row">
-        <div>
-          <div class="srv-name">Site vitrine professionnel</div>
-          <div class="srv-desc">Site rapide, optimisé SEO, livré clé en main. Facile à gérer après livraison.</div>
-        </div>
-        <div class="srv-tags">
-          <span class="stag">WordPress</span><span class="stag">Webflow</span><span class="stag">SEO</span>
-        </div>
-        <div class="srv-price">1 500 – 3 000 $</div>
-      </div>
-      <div class="service-row">
-        <div>
-          <div class="srv-name">Maintenance & support mensuel</div>
-          <div class="srv-desc">Mises à jour, corrections, évolutions. Contrat mensuel sans surprise.</div>
-        </div>
-        <div class="srv-tags">
-          <span class="stag">Support</span><span class="stag">Sécurité</span>
-        </div>
-        <div class="srv-price">150 – 300 $ / mois</div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -274,12 +273,17 @@ footer{padding:2rem 6%;display:flex;justify-content:space-between;align-items:ce
 .proj-item:nth-child(even){grid-template-columns:1fr 1.1fr}
 .proj-item:nth-child(even) .proj-visual{order:2}
 .proj-item:nth-child(even) .proj-info{order:1}
-.proj-visual{position:relative;min-height:320px;overflow:hidden}
-.proj-visual img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.proj-item:hover .proj-visual img{transform:scale(1.04)}
-.proj-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:1.25rem}
-.proj-type-badge{align-self:flex-start;font-size:.68rem;font-weight:600;letter-spacing:.06em;padding:.3rem .85rem;border-radius:3px}
-.proj-color-bar{position:absolute;bottom:0;left:0;right:0;height:4px}
+.proj-visual{position:relative;overflow:hidden;background:#1E1E1E;display:flex;flex-direction:column;min-height:320px}
+.proj-visual .browser-bar{height:28px;background:#1E1E1E;z-index:2;display:flex;align-items:center;padding:0 .75rem;gap:.4rem;flex-shrink:0;border-bottom:1px solid #2A2A2A}
+.browser-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.browser-url{flex:1;background:#2A2A2A;border-radius:3px;height:14px;margin:0 .6rem;display:flex;align-items:center;padding:0 .5rem}
+.browser-url span{font-size:.55rem;color:#666;letter-spacing:.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.proj-visual .screenshot-wrap{flex:1;overflow:hidden;position:relative;min-height:292px}
+.proj-visual .screenshot-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .6s}
+.proj-item:hover .proj-visual .screenshot-wrap img{transform:scale(1.03)}
+.proj-overlay{position:absolute;bottom:0;left:0;right:0;padding:.75rem;z-index:1}
+.proj-type-badge{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.06em;padding:.3rem .85rem;border-radius:3px}
+.proj-color-bar{position:absolute;bottom:0;left:0;right:0;height:3px;z-index:2}
 .proj-info{padding:2.5rem;display:flex;flex-direction:column;justify-content:space-between;gap:1.5rem}
 .proj-meta{display:flex;align-items:center;gap:.6rem;margin-bottom:.3rem}
 .proj-meta-num{font-size:.68rem;font-weight:600;letter-spacing:.12em;color:var(--light)}
@@ -303,9 +307,9 @@ footer{padding:2rem 6%;display:flex;justify-content:space-between;align-items:ce
 </style>
 
   <div class="section-header fade-in" style="max-width:1000px;margin:0 auto 3rem">
-    <div class="section-num">02 — Projets</div>
-    <h2>4 secteurs, 4 univers</h2>
-    <p class="section-sub">Chaque projet a sa propre identité visuelle, son propre public, ses propres besoins. C'est ça, le travail sur mesure.</p>
+    <div class="section-num" data-fr="02 — Projets" data-en="02 — Projects">02 — Projets</div>
+    <h2 data-fr="4 secteurs, 4 univers" data-en="4 industries, 4 universes">4 secteurs, 4 univers</h2>
+    <p class="section-sub" data-fr="Chaque projet a sa propre identité visuelle, son propre public, ses propres besoins. C'est ça, le travail sur mesure." data-en="Each project has its own visual identity, its own audience, its own needs. That's what custom work looks like.">Chaque projet a sa propre identité visuelle, son propre public, ses propres besoins. C'est ça, le travail sur mesure.</p>
   </div>
 
   <div class="proj-showcase fade-in">
@@ -313,7 +317,8 @@ footer{padding:2rem 6%;display:flex;justify-content:space-between;align-items:ce
     <!-- 01 RESTAURANT -->
     <div class="proj-item">
       <div class="proj-visual">
-        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&auto=format&fit=crop&q=80" alt="Trattoria Milano">
+        <div class="browser-bar"><div class="browser-dot" style="background:#FF5F57"></div><div class="browser-dot" style="background:#FEBC2E"></div><div class="browser-dot" style="background:#28C840"></div><div class="browser-url"><span>trattoriamilano.ca</span></div></div>
+        <div class="screenshot-wrap"><img src="Capture_resto.PNG" alt="Trattoria Milano"></div>
         <div class="proj-overlay">
           <span class="proj-type-badge" style="background:rgba(196,150,90,.2);color:#C4965A;border:1px solid rgba(196,150,90,.4)">Restauration</span>
         </div>
@@ -341,7 +346,8 @@ footer{padding:2rem 6%;display:flex;justify-content:space-between;align-items:ce
     <!-- 02 CLINIQUE -->
     <div class="proj-item">
       <div class="proj-visual">
-        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&auto=format&fit=crop&q=80" alt="PhysioPlus">
+        <div class="browser-bar"><div class="browser-dot" style="background:#FF5F57"></div><div class="browser-dot" style="background:#FEBC2E"></div><div class="browser-dot" style="background:#28C840"></div><div class="browser-url"><span>physioplus-laval.ca</span></div></div>
+        <div class="screenshot-wrap"><img src="Capture.PNG" alt="PhysioPlus"></div>
         <div class="proj-overlay">
           <span class="proj-type-badge" style="background:rgba(0,112,90,.18);color:#00705A;border:1px solid rgba(0,112,90,.3)">Santé</span>
         </div>
@@ -369,7 +375,8 @@ footer{padding:2rem 6%;display:flex;justify-content:space-between;align-items:ce
     <!-- 03 ÉLECTRICIEN -->
     <div class="proj-item">
       <div class="proj-visual">
-        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=900&auto=format&fit=crop&q=80" alt="Électro Martin">
+        <div class="browser-bar"><div class="browser-dot" style="background:#FF5F57"></div><div class="browser-dot" style="background:#FEBC2E"></div><div class="browser-dot" style="background:#28C840"></div><div class="browser-url"><span>electromartin.ca</span></div></div>
+        <div class="screenshot-wrap"><img src="electicite.PNG" alt="Électro Martin"></div>
         <div class="proj-overlay">
           <span class="proj-type-badge" style="background:rgba(255,204,0,.15);color:#FFCC00;border:1px solid rgba(255,204,0,.35)">Artisan / PME</span>
         </div>
@@ -397,7 +404,8 @@ footer{padding:2rem 6%;display:flex;justify-content:space-between;align-items:ce
     <!-- 04 COMPTABLE -->
     <div class="proj-item">
       <div class="proj-visual">
-        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=900&auto=format&fit=crop&q=80" alt="Beauchamp & Associés">
+        <div class="browser-bar"><div class="browser-dot" style="background:#FF5F57"></div><div class="browser-dot" style="background:#FEBC2E"></div><div class="browser-dot" style="background:#28C840"></div><div class="browser-url"><span>beauchampassocies.ca</span></div></div>
+        <div class="screenshot-wrap"><img src="comptable.PNG" alt="Beauchamp & Associés"></div>
         <div class="proj-overlay">
           <span class="proj-type-badge" style="background:rgba(15,13,10,.5);color:#D4CEBC;border:1px solid rgba(212,206,188,.3)">Professionnel / Finance</span>
         </div>
@@ -429,35 +437,35 @@ footer{padding:2rem 6%;display:flex;justify-content:space-between;align-items:ce
 <section id="apropos">
   <div class="section-inner">
     <div class="section-header fade-in">
-      <div class="section-num">03 — À propos</div>
+      <div class="section-num" data-fr="03 — À propos" data-en="03 — About">03 — À propos</div>
       <h2>Serge Folly Sanou</h2>
     </div>
     <div class="about-grid fade-in">
       <div class="about-text">
-        <p><strong>Diplômé en informatique</strong>, je conçois des applications web et des outils IA pour des entreprises qui veulent des résultats concrets — pas des promesses.</p>
-        <p>Ma formation universitaire me donne une base solide en algorithmique, architecture logicielle et sécurité. Mon travail en production m'a appris la rigueur et le respect des délais.</p>
-        <p>Je prends des projets en entier : de la conception à la livraison, en passant par la rédaction du code, les tests et le déploiement. <strong>Pas d'intermédiaires. Pas de surprises.</strong></p>
+        <p data-fr="<strong>Diplômé en informatique</strong>, je conçois des applications web et des outils IA pour des entreprises qui veulent des résultats concrets — pas des promesses." data-en="<strong>Computer Science graduate</strong>, I build web applications and AI tools for businesses that want real results — not promises."><strong>Diplômé en informatique</strong>, je conçois des applications web et des outils IA pour des entreprises qui veulent des résultats concrets — pas des promesses.</p>
+        <p data-fr="Ma formation universitaire me donne une base solide en algorithmique, architecture logicielle et sécurité. Mon travail en production m'a appris la rigueur et le respect des délais." data-en="My university training gives me a solid foundation in algorithms, software architecture and security. My production work taught me discipline and meeting deadlines.">Ma formation universitaire me donne une base solide en algorithmique, architecture logicielle et sécurité. Mon travail en production m'a appris la rigueur et le respect des délais.</p>
+        <p data-fr="Je prends des projets en entier : de la conception à la livraison, en passant par la rédaction du code, les tests et le déploiement. <strong>Pas d'intermédiaires. Pas de surprises.</strong>" data-en="I handle projects end-to-end: from design to delivery, including code, testing and deployment. <strong>No middlemen. No surprises.</strong>">Je prends des projets en entier : de la conception à la livraison, en passant par la rédaction du code, les tests et le déploiement. <strong>Pas d'intermédiaires. Pas de surprises.</strong></p>
 
         <div class="edu-block">
-          <div class="edu-label">Formation</div>
+          <div class="edu-label" data-fr="Formation" data-en="Education">Formation</div>
           <div class="edu-row">
-            <span class="edu-name">Baccalauréat en informatique</span>
-            <span class="edu-status done">✓ Obtenu</span>
+            <span class="edu-name" data-fr="Baccalauréat en informatique" data-en="Bachelor's in Computer Science">Baccalauréat en informatique</span>
+            <span class="edu-status done" data-fr="✓ Obtenu" data-en="✓ Completed">✓ Obtenu</span>
           </div>
           <div class="edu-row">
-            <span class="edu-name">Spécialisation IA appliquée — DeepLearning.AI</span>
-            <span class="edu-status">En cours</span>
+            <span class="edu-name" data-fr="Spécialisation IA appliquée — DeepLearning.AI" data-en="Applied AI Specialization — DeepLearning.AI">Spécialisation IA appliquée — DeepLearning.AI</span>
+            <span class="edu-status" data-fr="En cours" data-en="In progress">En cours</span>
           </div>
           <div class="edu-row">
             <span class="edu-name">LangChain & agents LLM</span>
-            <span class="edu-status">En cours</span>
+            <span class="edu-status" data-fr="En cours" data-en="In progress">En cours</span>
           </div>
         </div>
       </div>
 
       <div>
         <div class="stack-block">
-          <div class="stack-label">Stack technique</div>
+          <div class="stack-label" data-fr="Stack technique" data-en="Tech stack">Stack technique</div>
           <div class="stack-items">
             <span class="sitem">JavaScript</span>
             <span class="sitem">Python</span>
@@ -477,25 +485,25 @@ footer{padding:2rem 6%;display:flex;justify-content:space-between;align-items:ce
         </div>
 
         <div class="edu-block" style="margin-top:2rem">
-          <div class="edu-label">Ce que vous obtenez</div>
+          <div class="edu-label" data-fr="Ce que vous obtenez" data-en="What you get">Ce que vous obtenez</div>
           <div class="edu-row">
-            <span class="edu-name">Prix fixe avant de commencer</span>
+            <span class="edu-name" data-fr="Prix fixe avant de commencer" data-en="Fixed price before starting">Prix fixe avant de commencer</span>
             <span class="edu-status done">✓</span>
           </div>
           <div class="edu-row">
-            <span class="edu-name">Code propre et commenté</span>
+            <span class="edu-name" data-fr="Code propre et commenté" data-en="Clean, documented code">Code propre et commenté</span>
             <span class="edu-status done">✓</span>
           </div>
           <div class="edu-row">
-            <span class="edu-name">Livraison dans les délais</span>
+            <span class="edu-name" data-fr="Livraison dans les délais" data-en="On-time delivery">Livraison dans les délais</span>
             <span class="edu-status done">✓</span>
           </div>
           <div class="edu-row">
-            <span class="edu-name">2 révisions incluses</span>
+            <span class="edu-name" data-fr="2 révisions incluses" data-en="2 revisions included">2 révisions incluses</span>
             <span class="edu-status done">✓</span>
           </div>
           <div class="edu-row">
-            <span class="edu-name">Support 30 jours après livraison</span>
+            <span class="edu-name" data-fr="Support 30 jours après livraison" data-en="30-day post-delivery support">Support 30 jours après livraison</span>
             <span class="edu-status done">✓</span>
           </div>
         </div>
@@ -508,36 +516,39 @@ footer{padding:2rem 6%;display:flex;justify-content:space-between;align-items:ce
 <section id="contact">
   <div class="section-inner">
     <div class="section-header fade-in">
-      <div class="section-num">04 — Contact</div>
+      <div class="section-num" data-fr="04 — Contact" data-en="04 — Contact">04 — Contact</div>
     </div>
     <div class="contact-grid fade-in">
       <div>
-        <form class="contact-form" action="https://formspree.io/f/xpqejndp" method="POST" onsubmit="handleSubmit(event)">
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <input type="hidden" name="access_key" value="5a348f45-44bb-45e7-a46a-d3f1ef32cc28">
+          <input type="hidden" name="subject" value="Nouveau message — Portfolio Serge Folly Sanou">
+          <input type="hidden" name="from_name" value="Portfolio Serge">
           <div class="form-group">
-            <label>Nom</label>
-            <input type="text" placeholder="Votre nom" required>
+            <label data-fr="Nom" data-en="Name">Nom</label>
+            <input type="text" name="name" data-fr-placeholder="Votre nom" data-en-placeholder="Your name" placeholder="Votre nom" required>
           </div>
           <div class="form-group">
-            <label>Courriel</label>
-            <input type="email" placeholder="vous@entreprise.ca" required>
+            <label data-fr="Courriel" data-en="Email">Courriel</label>
+            <input type="email" name="email" data-fr-placeholder="vous@entreprise.ca" data-en-placeholder="you@company.com" placeholder="vous@entreprise.ca" required>
           </div>
           <div class="form-group">
-            <label>Projet</label>
-            <input type="text" placeholder="Application web, intégration IA, site vitrine...">
+            <label data-fr="Projet" data-en="Project">Projet</label>
+            <input type="text" name="projet" data-fr-placeholder="Application web, intégration IA, site vitrine..." data-en-placeholder="Web app, AI integration, business website..." placeholder="Application web, intégration IA, site vitrine...">
           </div>
           <div class="form-group">
-            <label>Message</label>
-            <textarea placeholder="Décrivez votre besoin en quelques lignes." required></textarea>
+            <label data-fr="Message" data-en="Message">Message</label>
+            <textarea name="message" data-fr-placeholder="Décrivez votre besoin en quelques lignes." data-en-placeholder="Describe your needs in a few lines." placeholder="Décrivez votre besoin en quelques lignes." required></textarea>
           </div>
-          <button type="submit" class="btn-submit">Envoyer →</button>
+          <button type="submit" class="btn-submit" data-fr="Envoyer →" data-en="Send →">Envoyer →</button>
         </form>
       </div>
       <div class="contact-aside">
-        <div class="contact-aside-title">Parlons de votre projet.</div>
-        <div class="contact-aside-sub">Je réponds dans les 48h. Si vous avez un besoin urgent, précisez-le dans le message.</div>
+        <div class="contact-aside-title" data-fr="Parlons de votre projet." data-en="Let's talk about your project.">Parlons de votre projet.</div>
+        <div class="contact-aside-sub" data-fr="Je réponds dans les 48h. Si vous avez un besoin urgent, précisez-le dans le message." data-en="I reply within 48h. If you have an urgent need, mention it in the message.">Je réponds dans les 48h. Si vous avez un besoin urgent, précisez-le dans le message.</div>
         <div class="contact-info-list">
           <div class="cinfo">
-            <span class="cinfo-label">Courriel</span>
+            <span class="cinfo-label" data-fr="Courriel" data-en="Email">Courriel</span>
             <span class="cinfo-val">sanouserge14@gmail.com</span>
           </div>
           <div class="cinfo">
@@ -545,17 +556,17 @@ footer{padding:2rem 6%;display:flex;justify-content:space-between;align-items:ce
             <span class="cinfo-val"><a href="https://www.linkedin.com/in/serge-folly-sanou-1368701b2/" target="_blank" style="color:var(--ink)">linkedin.com/in/serge-folly-sanou</a></span>
           </div>
           <div class="cinfo">
-            <span class="cinfo-label">Localisation</span>
+            <span class="cinfo-label" data-fr="Localisation" data-en="Location">Localisation</span>
             <span class="cinfo-val">Gatineau, Québec</span>
           </div>
           <div class="cinfo">
-            <span class="cinfo-label">Téléphone</span>
+            <span class="cinfo-label" data-fr="Téléphone" data-en="Phone">Téléphone</span>
             <span class="cinfo-val">418 573-5199</span>
           </div>
         </div>
         <div class="avail-pill">
           <div class="avail-dot"></div>
-          Disponible pour nouveaux projets
+          <span data-fr="Disponible pour nouveaux projets" data-en="Available for new projects">Disponible pour nouveaux projets</span>
         </div>
       </div>
     </div>
@@ -564,7 +575,7 @@ footer{padding:2rem 6%;display:flex;justify-content:space-between;align-items:ce
 
 <footer>
   <span>© 2026 Serge Folly Sanou</span>
-  <span>Développeur Web & IA · Gatineau, QC</span>
+  <span data-fr="Développeur Web & IA · Gatineau, QC" data-en="Web & AI Developer · Gatineau, QC">Développeur Web & IA · Gatineau, QC</span>
 </footer>
 
 <script>
@@ -575,12 +586,62 @@ const obs = new IntersectionObserver((entries) => {
 },{threshold:0.08});
 document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
 
-function handleSubmit(e){
+function setLang(lang){
+  // Toggle active button
+  document.getElementById('btn-fr').classList.toggle('active', lang==='fr');
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.documentElement.lang = lang;
+
+  // Swap all data-fr / data-en text content
+  document.querySelectorAll('[data-fr][data-en]').forEach(el=>{
+    const val = el.getAttribute('data-'+lang);
+    if(val) el.innerHTML = val;
+  });
+
+  // Swap placeholders on inputs/textareas
+  document.querySelectorAll('[data-fr-placeholder][data-en-placeholder]').forEach(el=>{
+    el.placeholder = el.getAttribute('data-'+lang+'-placeholder');
+  });
+
+  // Update page title
+  document.title = lang==='fr'
+    ? 'Serge Folly Sanou — Développeur Web & IA'
+    : 'Serge Folly Sanou — Web & AI Developer';
+
+  // Persist choice
+  localStorage.setItem('lang', lang);
+}
+
+// On load, restore saved language
+(function(){
+  const saved = localStorage.getItem('lang');
+  if(saved && saved !== 'fr') setLang(saved);
+})();
+
+async function handleSubmit(e){
   e.preventDefault();
   const btn=e.target.querySelector('.btn-submit');
-  btn.textContent='✓ Envoyé';
-  btn.style.background='#22C55E';
-  setTimeout(()=>{btn.textContent='Envoyer →';btn.style.background='';e.target.reset();},3000);
+  btn.textContent='Envoi en cours...';
+  btn.disabled=true;
+
+  const data=new FormData(e.target);
+  const response=await fetch('https://api.web3forms.com/submit',{
+    method:'POST',
+    body:data
+  });
+  const result=await response.json();
+
+  if(result.success){
+    btn.textContent='✓ Message envoyé !';
+    btn.style.background='#22C55E';
+    e.target.reset();
+    setTimeout(()=>{btn.textContent='Envoyer →';btn.style.background='';btn.disabled=false;},4000);
+  } else {
+    btn.textContent='Erreur — réessayez';
+    btn.style.background='#EF4444';
+    btn.disabled=false;
+    setTimeout(()=>{btn.textContent='Envoyer →';btn.style.background='';},3000);
+  }
 }
 </script>
 </body>
