@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Kinetic — Entraînement personnel · Québec</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{--lime:#D4F23A;--ink:#0E0E0E;--mid:#9A9A9A;--line:#262626}
+body{font-family:'Inter',sans-serif;background:var(--ink);color:white;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:99;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 5%;background:rgba(14,14,14,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.2rem;text-transform:uppercase;letter-spacing:-.01em}
+.logo span{color:var(--lime)}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{font-size:.8rem;color:var(--mid);text-decoration:none;text-transform:uppercase;letter-spacing:.04em}
+.nav-links a:hover{color:white}
+.nav-cta{background:var(--lime);color:var(--ink)!important;padding:.5rem 1.3rem;font-weight:700!important}
+
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:7rem 5% 4rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1800&auto=format&fit=crop&q=80') center/cover;opacity:.25;filter:grayscale(.3)}
+.hero-content{position:relative;z-index:1}
+h1{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(3.4rem,9vw,8rem);line-height:.88;text-transform:uppercase;letter-spacing:-.02em}
+h1 span{color:var(--lime)}
+.hero-sub{font-size:1rem;color:var(--mid);max-width:480px;margin-top:1.5rem;line-height:1.8;font-weight:300}
+.hero-actions{display:flex;gap:1rem;margin-top:2.5rem}
+.btn-lime{background:var(--lime);color:var(--ink);padding:.9rem 1.8rem;font-weight:700;text-decoration:none;text-transform:uppercase;font-size:.82rem;letter-spacing:.02em}
+.btn-out{border:1px solid #444;color:white;padding:.9rem 1.8rem;text-decoration:none;text-transform:uppercase;font-size:.82rem}
+.hero-stats{display:flex;gap:3rem;margin-top:4rem;padding-top:2rem;border-top:1px solid var(--line)}
+.hstat strong{font-family:'Archivo',sans-serif;font-weight:900;font-size:2.2rem;color:var(--lime);display:block}
+.hstat span{font-size:.75rem;color:var(--mid);text-transform:uppercase}
+
+section{padding:6.5rem 5%}
+.inner{max-width:1100px;margin:0 auto}
+.eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);margin-bottom:1rem;font-weight:700}
+h2{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(2.2rem,4vw,3.6rem);text-transform:uppercase;line-height:.95;letter-spacing:-.01em}
+
+#programmes{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.prog-card{background:#161616;border:1px solid var(--line);padding:2rem;transition:border-color .2s}
+.prog-card:hover{border-color:var(--lime)}
+.prog-icon{font-size:2rem;margin-bottom:1rem}
+.prog-name{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.2rem;text-transform:uppercase;margin-bottom:.6rem}
+.prog-desc{font-size:.85rem;color:var(--mid);line-height:1.6;font-weight:300}
+.prog-price{margin-top:1.2rem;font-family:'Archivo',sans-serif;font-weight:900;color:var(--lime);font-size:1.3rem}
+
+#coachs{}
+.coach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.coach-card img{width:100%;height:300px;object-fit:cover;filter:grayscale(.4)}
+.coach-name{font-family:'Archivo',sans-serif;font-weight:700;margin-top:1rem;text-transform:uppercase}
+.coach-spec{font-size:.8rem;color:var(--lime);margin-top:.2rem}
+
+#contact{background:#161616}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:3rem}
+.cfg{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.1rem}
+.cfg label{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mid)}
+.cfg input,.cfg textarea{background:var(--ink);border:1px solid var(--line);padding:.8rem;font-family:'Inter',sans-serif;font-size:.9rem;color:white}
+.btn-send{background:var(--lime);color:var(--ink);border:none;padding:.9rem 2rem;font-weight:700;cursor:pointer;text-transform:uppercase;font-size:.85rem}
+.info-row{display:flex;justify-content:space-between;padding:1rem 0;border-bottom:1px solid var(--line);font-size:.88rem}
+.info-row span:first-child{color:var(--mid)}
+
+footer{padding:2.5rem 5%;display:flex;justify-content:space-between;color:var(--mid);font-size:.8rem;border-top:1px solid var(--line)}
+@media(max-width:768px){.nav-links{display:none}.prog-grid,.coach-grid,.contact-grid{grid-template-columns:1fr}.hero-stats{flex-wrap:wrap;gap:1.5rem}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">Studio<span>Kinetic</span></div>
+  <ul class="nav-links"><li><a href="#programmes">Programmes</a></li><li><a href="#coachs">Coachs</a></li><li><a href="#contact">Contact</a></li></ul>
+  <a href="#contact" class="nav-cta" style="text-decoration:none">Essai gratuit</a>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1>Plus fort.<br>Chaque<span> semaine.</span></h1>
+    <p class="hero-sub">Studio Kinetic combine entraînement personnalisé, suivi nutritionnel et coaching humain — pas une appli, pas un abonnement anonyme.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-lime">Réserver une séance →</a>
+      <a href="#programmes" class="btn-out">Voir les programmes</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><strong>340+</strong><span>Membres actifs</span></div>
+      <div class="hstat"><strong>8</strong><span>Coachs certifiés</span></div>
+      <div class="hstat"><strong>4.9★</strong><span>180 avis Google</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="programmes">
+  <div class="inner">
+    <div class="eyebrow">Programmes</div>
+    <h2>Choisis ton<br>entraînement</h2>
+    <div class="prog-grid">
+      <div class="prog-card"><div class="prog-icon">🏋️</div><div class="prog-name">Force & hypertrophie</div><div class="prog-desc">Programme de musculation structuré sur 12 semaines, suivi de charge personnalisé.</div><div class="prog-price">89 $/mois</div></div>
+      <div class="prog-card"><div class="prog-icon">🔥</div><div class="prog-name">Perte de poids</div><div class="prog-desc">Entraînement + plan nutritionnel adapté à ton métabolisme et ton horaire.</div><div class="prog-price">119 $/mois</div></div>
+      <div class="prog-card"><div class="prog-icon">🥊</div><div class="prog-name">Cardio & performance</div><div class="prog-desc">Préparation athlétique pour sports de combat, course ou triathlon.</div><div class="prog-price">99 $/mois</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="coachs">
+  <div class="inner">
+    <div class="eyebrow">L'équipe</div>
+    <h2>Tes coachs</h2>
+    <div class="coach-grid">
+      <div class="coach-card"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&auto=format&fit=crop&q=80" alt="Coach"><div class="coach-name">Maxime Roy</div><div class="coach-spec">Force & powerlifting</div></div>
+      <div class="coach-card"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&auto=format&fit=crop&q=80" alt="Coach"><div class="coach-name">Léa Fontaine</div><div class="coach-spec">Nutrition & perte de poids</div></div>
+      <div class="coach-card"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=400&auto=format&fit=crop&q=80" alt="Coach"><div class="coach-name">Samuel Tremblay</div><div class="coach-spec">Performance & cardio</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="inner">
+    <div class="eyebrow">Commencer</div>
+    <h2>Réserve ton<br>essai gratuit</h2>
+    <div class="contact-grid">
+      <form onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ Demande envoyée'">
+        <div class="cfg"><label>Nom</label><input type="text" placeholder="Ton nom"></div>
+        <div class="cfg"><label>Courriel</label><input type="email" placeholder="toi@email.com"></div>
+        <div class="cfg"><label>Objectif</label><input type="text" placeholder="Perte de poids, force, performance…"></div>
+        <button type="submit" class="btn-send">Réserver mon essai →</button>
+      </form>
+      <div>
+        <div class="info-row"><span>Adresse</span><span>1820 boul. Charest O., Québec</span></div>
+        <div class="info-row"><span>Téléphone</span><span>418 555-0198</span></div>
+        <div class="info-row"><span>Courriel</span><span>info@studiokinetic.ca</span></div>
+        <div class="info-row"><span>Heures</span><span>Lun–Ven 6h–22h · Sam–Dim 8h–18h</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><span>© 2026 Studio Kinetic</span><span>Entraînement personnel · Québec</span></footer>
+</body>
+</html>

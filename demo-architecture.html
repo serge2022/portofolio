@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atelier Norden — Architecture d'intérieur · Montréal</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{--cream:#F7F4EE;--ink:#191713;--mid:#7A7468;--line:#E3DDD0;--clay:#B5694A}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:99;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 5%;background:rgba(247,244,238,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{font-family:'Fraunces',serif;font-size:1.2rem;letter-spacing:.02em}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{font-size:.82rem;color:var(--mid);text-decoration:none}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{border:1px solid var(--ink);padding:.45rem 1.2rem;border-radius:100px}
+
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:7rem 5% 4rem;position:relative}
+.hero-eyebrow{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--clay);margin-bottom:1.5rem}
+h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(3rem,7vw,6.5rem);line-height:.98;letter-spacing:-.01em;max-width:900px}
+h1 em{font-style:italic;color:var(--clay)}
+.hero-sub{font-size:1rem;color:var(--mid);max-width:480px;margin-top:2rem;line-height:1.8;font-weight:300}
+.hero-img-strip{margin-top:4rem;display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem;height:340px}
+.hero-img-strip img{width:100%;height:100%;object-fit:cover;border-radius:4px}
+
+section{padding:7rem 5%}
+.inner{max-width:1100px;margin:0 auto}
+.eyebrow{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--clay);margin-bottom:1rem}
+h2{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(2rem,3.5vw,3.2rem);line-height:1.1;letter-spacing:-.01em}
+h2 em{font-style:italic;color:var(--clay)}
+.lead{font-size:.95rem;color:var(--mid);max-width:480px;line-height:1.8;margin-top:1rem;font-weight:300}
+
+#projets{background:white;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3.5rem}
+.pcard{position:relative;overflow:hidden;border-radius:6px}
+.pcard img{width:100%;height:380px;object-fit:cover;transition:transform .6s}
+.pcard:hover img{transform:scale(1.06)}
+.pcard-label{position:absolute;bottom:0;left:0;right:0;padding:1.5rem;background:linear-gradient(transparent,rgba(0,0,0,.7))}
+.pcard-name{font-family:'Fraunces',serif;color:white;font-size:1.3rem}
+.pcard-loc{font-size:.78rem;color:rgba(255,255,255,.6);margin-top:.3rem}
+
+#services{background:var(--ink);color:var(--cream)}
+#services .eyebrow{color:#D89B7E}
+.svc-list{margin-top:3rem;border-top:1px solid #333}
+.svc-row{display:flex;justify-content:space-between;padding:2rem 0;border-bottom:1px solid #333;align-items:baseline}
+.svc-name{font-family:'Fraunces',serif;font-size:1.4rem}
+.svc-num{font-size:.78rem;color:#777}
+
+#contact{background:var(--cream)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:3rem}
+.cfg{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.1rem}
+.cfg label{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mid)}
+.cfg input,.cfg textarea{background:white;border:1px solid var(--line);border-radius:4px;padding:.8rem;font-family:'Inter',sans-serif;font-size:.9rem}
+.btn-send{background:var(--ink);color:white;border:none;padding:.9rem 2rem;border-radius:100px;font-size:.85rem;cursor:pointer}
+.info-row{display:flex;justify-content:space-between;padding:1rem 0;border-bottom:1px solid var(--line)}
+
+footer{padding:2.5rem 5%;display:flex;justify-content:space-between;color:var(--mid);font-size:.8rem;border-top:1px solid var(--line)}
+@media(max-width:768px){.nav-links{display:none}.proj-grid,.contact-grid{grid-template-columns:1fr}.hero-img-strip{grid-template-columns:1fr;height:auto}.hero-img-strip img{height:220px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">Atelier Norden</div>
+  <ul class="nav-links"><li><a href="#projets">Projets</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul>
+  <a href="#contact" class="nav-cta" style="font-size:.8rem;text-decoration:none;color:var(--ink)">Consultation</a>
+</nav>
+
+<section id="hero">
+  <div class="hero-eyebrow">Architecture d'intérieur · Montréal</div>
+  <h1>Des espaces qui<br>respirent <em>l'essentiel.</em></h1>
+  <p class="hero-sub">Atelier Norden conçoit des intérieurs résidentiels et commerciaux où chaque matière, chaque lumière, chaque vide a une raison d'être.</p>
+  <div class="hero-img-strip">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&auto=format&fit=crop&q=80" alt="Salon minimaliste">
+    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500&auto=format&fit=crop&q=80" alt="Cuisine épurée">
+    <img src="https://images.unsplash.com/photo-1556909212-d5b65c2eb6e3?w=500&auto=format&fit=crop&q=80" alt="Chambre lumineuse">
+  </div>
+</section>
+
+<section id="projets">
+  <div class="inner">
+    <div class="eyebrow">Projets récents</div>
+    <h2>Une sélection<br><em>d'intérieurs</em></h2>
+    <div class="proj-grid">
+      <div class="pcard"><img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=700&auto=format&fit=crop&q=80" alt="Résidence Outremont"><div class="pcard-label"><div class="pcard-name">Résidence Outremont</div><div class="pcard-loc">Maison unifamiliale · 2025</div></div></div>
+      <div class="pcard"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=700&auto=format&fit=crop&q=80" alt="Loft Griffintown"><div class="pcard-label"><div class="pcard-name">Loft Griffintown</div><div class="pcard-loc">Condo industriel · 2025</div></div></div>
+      <div class="pcard"><img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=700&auto=format&fit=crop&q=80" alt="Bureau Mile-Ex"><div class="pcard-label"><div class="pcard-name">Bureau Mile-Ex</div><div class="pcard-loc">Espace commercial · 2024</div></div></div>
+      <div class="pcard"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=700&auto=format&fit=crop&q=80" alt="Pied-à-terre Westmount"><div class="pcard-label"><div class="pcard-name">Pied-à-terre Westmount</div><div class="pcard-loc">Rénovation complète · 2024</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="inner">
+    <div class="eyebrow">Services</div>
+    <h2>Ce que nous<br><em>concevons</em></h2>
+    <div class="svc-list">
+      <div class="svc-row"><span class="svc-name">Conception résidentielle complète</span><span class="svc-num">01</span></div>
+      <div class="svc-row"><span class="svc-name">Aménagement d'espaces commerciaux</span><span class="svc-num">02</span></div>
+      <div class="svc-row"><span class="svc-name">Sélection de matériaux & mobilier</span><span class="svc-num">03</span></div>
+      <div class="svc-row"><span class="svc-name">Direction de chantier</span><span class="svc-num">04</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="inner">
+    <div class="eyebrow">Contact</div>
+    <h2>Démarrer un<br><em>projet</em></h2>
+    <div class="contact-grid">
+      <form onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ Envoyé'">
+        <div class="cfg"><label>Nom</label><input type="text" placeholder="Votre nom"></div>
+        <div class="cfg"><label>Courriel</label><input type="email" placeholder="vous@email.com"></div>
+        <div class="cfg"><label>Décrivez votre projet</label><textarea rows="4" placeholder="Type d'espace, superficie, échéancier…"></textarea></div>
+        <button type="submit" class="btn-send">Envoyer la demande →</button>
+      </form>
+      <div>
+        <div class="info-row"><span>Adresse</span><span>425 rue Beaubien O., Montréal</span></div>
+        <div class="info-row"><span>Téléphone</span><span>514 555-0142</span></div>
+        <div class="info-row"><span>Courriel</span><span>bonjour@ateliernorden.ca</span></div>
+        <div class="info-row"><span>Heures</span><span>Lun–Ven, 9h–18h</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><span>© 2026 Atelier Norden</span><span>Architecture d'intérieur · Montréal</span></footer>
+</body>
+</html>

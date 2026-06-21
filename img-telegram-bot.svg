@@ -1,0 +1,56 @@
+<svg width="100%" viewBox="0 0 680 480" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>Illustration conceptuelle du bot de réservation Telegram</title>
+<desc>Automatisation de réservation par conversation</desc>
+<defs>
+<linearGradient id="tgBg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#0E1621"/>
+<stop offset="100%" stop-color="#152233"/>
+</linearGradient>
+</defs>
+<rect x="0" y="0" width="680" height="480" rx="16" fill="url(#tgBg)"/>
+<circle cx="540" cy="120" r="180" fill="#1B3A52" opacity="0.4"/>
+<circle cx="90" cy="400" r="150" fill="#19384F" opacity="0.35"/>
+<circle cx="340" cy="220" r="100" fill="#1A2C3A"/>
+<circle cx="340" cy="220" r="100" fill="#27A7E7" opacity="0.12"/>
+<g transform="translate(295,178)">
+<path d="M0 38 L86 4 Q94 1 91 9 L74 80 Q71 90 62 84 L38 66 L26 76 Q20 81 20 73 L22 45 L70 8 Q74 5 69 9 L29 47 Z" fill="#27A7E7"/>
+</g>
+<g opacity="0.95">
+<rect x="80" y="100" width="160" height="58" rx="16" fill="#1E2C39"/>
+<rect x="98" y="118" width="110" height="6" rx="3" fill="#E8EBED"/>
+<rect x="98" y="132" width="80" height="6" rx="3" fill="#8A99A6"/>
+</g>
+<g opacity="0.95">
+<rect x="450" y="80" width="150" height="50" rx="16" fill="#2B5278"/>
+<rect x="468" y="96" width="100" height="6" rx="3" fill="#E8F2FA"/>
+<rect x="468" y="110" width="60" height="6" rx="3" fill="#A8C5DC"/>
+</g>
+<g opacity="0.95">
+<rect x="440" y="330" width="170" height="60" rx="16" fill="#1E2C39"/>
+<rect x="458" y="348" width="120" height="6" rx="3" fill="#E8EBED"/>
+<rect x="458" y="362" width="90" height="6" rx="3" fill="#8A99A6"/>
+</g>
+<g opacity="0.95">
+<rect x="60" y="350" width="140" height="50" rx="16" fill="#2B5278"/>
+<rect x="78" y="366" width="90" height="6" rx="3" fill="#E8F2FA"/>
+<rect x="78" y="380" width="50" height="6" rx="3" fill="#A8C5DC"/>
+</g>
+<g transform="translate(580,200)" opacity="0.9">
+<circle r="34" fill="#1B3A52"/>
+<circle r="22" fill="none" stroke="#5EEAB0" stroke-width="2.5"/>
+<line x1="0" y1="0" x2="0" y2="-14" stroke="#5EEAB0" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="0" y1="0" x2="9" y2="6" stroke="#5EEAB0" stroke-width="2.5" stroke-linecap="round"/>
+</g>
+<g transform="translate(110,240)" opacity="0.9">
+<rect x="-26" y="-22" width="52" height="44" rx="6" fill="#1B3A52"/>
+<rect x="-26" y="-22" width="52" height="14" rx="6" fill="#27A7E7"/>
+<circle cx="-8" cy="6" r="2.5" fill="#5EEAB0"/>
+<circle cx="0" cy="6" r="2.5" fill="#5EEAB0"/>
+<circle cx="8" cy="6" r="2.5" fill="#3A4F63"/>
+<circle cx="-8" cy="14" r="2.5" fill="#3A4F63"/>
+</g>
+<line x1="240" y1="129" x2="280" y2="200" stroke="#27A7E7" stroke-width="1" stroke-dasharray="3 4" opacity="0.4"/>
+<line x1="450" y1="105" x2="400" y2="190" stroke="#27A7E7" stroke-width="1" stroke-dasharray="3 4" opacity="0.4"/>
+<line x1="440" y1="360" x2="400" y2="260" stroke="#27A7E7" stroke-width="1" stroke-dasharray="3 4" opacity="0.4"/>
+<line x1="200" y1="375" x2="280" y2="260" stroke="#27A7E7" stroke-width="1" stroke-dasharray="3 4" opacity="0.4"/>
+</svg>
