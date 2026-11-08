@@ -273,7 +273,8 @@ function buildWorld(){
  let cardD=3;
  function place(){
   const nodes=camEl.children,o=new THREE.Object3D(),M=new THREE.Matrix4();
-  if(FLATUI()){[...nodes].forEach(n=>n.style.transform='');camEl.style.transform='';view.style.perspective='';return}
+  if(FLATUI()){[...nodes].forEach(n=>n.style.transform='');camEl.style.transform='';camEl.style.width='';camEl.style.height='';view.style.perspective='';view.style.perspectiveOrigin='';return}
+  camEl.style.width=w+'px';camEl.style.height=h+'px';view.style.perspectiveOrigin=(w/2)+'px '+(h/2)+'px';
   SL.forEach((s,i)=>{if(!s.card)return;const w0=LV(s.card),e=LV(s.cam);o.position.copy(w0);o.quaternion.setFromRotationMatrix(M.lookAt(e,w0,up0));o.scale.setScalar(S*PX);o.updateMatrixWorld(true);nodes[i].style.transform=objCSS(o.matrixWorld)});
  }
  function build(){
@@ -352,8 +353,8 @@ let tw=0,tc=0,tb=false;const typedEl=$('#typed');
 (function ty(){const w=UI[lang].typed[tw%UI[lang].typed.length];tc+=tb?-1:1;typedEl.textContent=w.slice(0,Math.max(tc,0));let d=tb?34:68;if(!tb&&tc>=w.length){tb=true;d=1500}else if(tb&&tc<=0){tb=false;tw++;d=320}setTimeout(ty,reduce?2600:d)})();
 function frame(now){
  requestAnimationFrame(frame);if(document.hidden||flat){last=now;return}
- const dt=Math.min(.05,(now-last)/1000);last=now;t+=dt;
- const y=scrollY,tu=world.uAt(y);uS+=(tu-uS)*(1-Math.exp(-dt*6.5));
+ const dtR=Math.min(.4,(now-last)/1000),dt=Math.min(.05,dtR);last=now;t+=dt;
+ const y=scrollY,tu=world.uAt(y);uS+=(tu-uS)*(1-Math.exp(-dtR*6.5));
  const r=world.draw(uS,t);document.body.classList.toggle('in',uS>1.75);
  {const rf=clamp(r.rf,0,mapPts.length-1),i0=Math.min(Math.floor(rf),mapPts.length-2),f0=rf-i0,A0=mapPts[i0],B0=mapPts[i0+1],hx=A0[0]+(B0[0]-A0[0])*f0,hy=A0[1]+(B0[1]-A0[1])*f0;
   $('#map-h').setAttribute('cx',hx.toFixed(1));$('#map-h').setAttribute('cy',hy.toFixed(1));
