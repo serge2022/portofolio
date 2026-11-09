@@ -10,6 +10,22 @@ const ACC=[[14,165,233],[122,77,255],[47,107,255],[0,168,132],[226,152,0],[255,6
 const CHIPS=[];
 const MAPS=[[-47.5,-72.0],[-53.0,-66.5],[-74.0,-59.5],[-87.5,-47.0],[-93.5,-35.0],[-93.5,-29.0],[-90.5,-22.0],[-99.0,-18.5],[-105.5,-8.0],[-105.5,13.0],[-92.5,40.0],[-80.5,54.0],[-78.5,60.0],[-72.0,66.5],[-60.0,72.5],[-55.0,77.5],[-41.0,82.5],[-31.0,80.5],[-21.0,81.5],[-15.0,78.5],[-1.0,77.5],[21.0,69.5],[29.0,63.5],[36.0,61.5],[58.5,42.0],[65.5,31.0],[72.5,14.0],[72.5,-10.0],[62.0,-27.5],[41.0,-32.5],[27.0,-30.5],[24.5,-41.0],[19.0,-46.5],[12.0,-47.5],[6.0,-51.5],[-7.0,-51.5],[-15.0,-43.5],[-18.0,-43.5],[-22.0,-48.5],[-29.5,-52.0],[-34.5,-63.0],[-42.5,-72.0]];
 const ASSETS={"tuc1": "assets/img/tuc1.jpg", "tuc2": "assets/img/tuc2.jpg", "tuc3": "assets/img/tuc3.jpg", "nbw": "assets/img/nbw.png"};
+function miniGraph(W,c,pw,ph){
+ const n=W.n.length,out=[...Array(n)].map(()=>[]);W.e.forEach(e=>out[e[0]].push(e[1]));
+ const st=new Uint8Array(n),back=new Set(),dfs=u=>{st[u]=1;out[u].forEach(v=>{if(st[v]===1)back.add(u+'-'+v);else if(!st[v])dfs(v)});st[u]=2};
+ W.n.forEach((x,i)=>{if(x[1]==='t'&&!st[i])dfs(i)});W.n.forEach((x,i)=>{if(!st[i])dfs(i)});
+ const E=W.e.filter(e=>!back.has(e[0]+'-'+e[1])),rk=new Array(n).fill(0),pre=new Array(n).fill(-1);
+ for(let k=0;k<n;k++)E.forEach(e=>{if(rk[e[0]]+1>rk[e[1]]){rk[e[1]]=rk[e[0]]+1;pre[e[1]]=e[0]}});
+ const Rk=Math.max(...rk,1),rows={};rk.forEach((r,i)=>(rows[r]=rows[r]||[]).push(i));
+ const mx=16,xy=i=>{const r=rk[i],row=rows[r],k=row.indexOf(i),g=Math.min(30,(ph-34)/Math.max(1,row.length-1));return [mx+r/Rk*(pw-2*mx),ph/2+(k-(row.length-1)/2)*g]};
+ const col=`rgb(${c})`,seg=(a,b)=>{const m=(a[0]+b[0])/2;return `C${m} ${a[1]} ${m} ${b[1]} ${b[0]} ${b[1]}`};
+ const ed=E.map((e,i)=>{const a=xy(e[0]),b=xy(e[1]);return `<path class="e" pathLength="1" style="--i:${rk[e[0]]}" d="M${a[0]} ${a[1]}${seg(a,b)}" fill="none" stroke="${col}" stroke-opacity=".55" stroke-width="1.6"/>`}).join('');
+ const no=W.n.map((x,i)=>{const p=xy(i),ai=x[1]==='a',tr=x[1]==='t';return `<circle class="n" style="--i:${rk[i]}" cx="${p[0]}" cy="${p[1]}" r="${ai?8:tr?6:4.4}" fill="${ai?col:tr?'#141a21':'#fff'}" stroke="${ai?col:tr?'#141a21':col}" stroke-width="1.6"/>`}).join('');
+ let end=rk.indexOf(Rk),ch=[end];while(pre[end]>=0){end=pre[end];ch.unshift(end)}
+ let d='';ch.forEach((v,i)=>{const p=xy(v);d+=i?seg(xy(ch[i-1]),p):`M${p[0]} ${p[1]}`});
+ return `<svg viewBox="0 0 ${pw} ${ph}" aria-hidden="true">${ed}${no}<circle r="6" fill="${col}"><animateMotion dur="${Math.max(3,ch.length*.42)}s" repeatCount="indefinite" path="${d}"/></circle></svg>`;
+}
+/* Ce qui est accroché dans chaque pièce */
 const ITEMS=[];
 REGIONS.forEach((r,i)=>{ITEMS.push({room:i,kind:'title',r});if(r.text||r.contact)ITEMS.push({room:i,kind:'note',r});(r.timeline||[]).forEach((s,k)=>ITEMS.push({room:i,kind:'step',r,s,k}));(r.projects||[]).forEach(p=>ITEMS.push({room:i,kind:'project',r,p}))});
 const spl=s=>{let n=0;return s.split(' ').map(w=>`<span class="wd">${[...w].map(c=>`<span class="ch" style="--i:${n++}">${c}</span>`).join('')}</span>`).join(' ')};
@@ -28,13 +44,14 @@ function itemHTML(it){
  }
  if(it.kind==='step'){const s=it.s,n=r.timeline.length,col=`rgb(${cm})`,dots=[...Array(n)].map((_,j)=>{const x=20+j*(600/(n-1)),on=j<=it.k;return `<circle class="n" style="--i:${j*3}" cx="${x}" cy="30" r="${j===it.k?15:8}" fill="${on?col:'#fff'}" stroke="${col}" stroke-width="2"/>`}).join('');
   return `<article class="item step" data-room="${it.room}" ${st}><svg class="tl" viewBox="0 0 640 60" aria-hidden="true"><path class="e" pathLength="1" style="--i:0" d="M20 30H620" stroke="${col}" stroke-opacity=".45" stroke-width="2" fill="none"/>${dots}</svg><p class="step-t">${tr(s.type)}${s.when?` · ${tr(s.when)}`:''}</p><h3 class="big">${spl(tr(s.title))}</h3><p class="p-desc">${spw(tr(s.desc))}</p></article>`}
- const p=it.p,links=p.links.map(l=>`<a href="${l.url}" target="_blank" rel="noopener">${l.label?tr(l.label):u.site}</a>`).join('')+`<a href="projets/${slugOf(p)}.html">${u.proj}</a>`;
- let media='',fx='plain';
+ const p=it.p,links=p.links.filter(l=>!l.wf).map(l=>`<a href="${l.url}" target="_blank" rel="noopener">${l.label?tr(l.label):u.site}</a>`).join('')+`<a href="projets/${slugOf(p)}.html">${u.proj}</a>`;
+ const wl=p.links.find(x=>x.wf);let media='',fx='plain';
  if(p.img==='tuc'){fx='web';media=`<div class="scat">${['tuc1','tuc2','tuc3'].map((k,i)=>`<img class="s${i}" src="${ASSETS[k]}" alt="">`).join('')}</div>`}
  else if(p.img==='nbw'){fx='web';media=`<img class="logo-b" src="${ASSETS.nbw}" alt="">`}
  else if(p.brand){fx='web';media=`<div class="kel">${spl('kelthen.com')}</div>`}
  else if(p.chat){fx='ai';media=`<div class="chat"><p class="ex">${u.ex}</p>${p.chat[lang].map((m,i)=>`<p class="${m[0]}" style="--i:${i}">${m[1]}</p>`).join('')}</div>`}
  else if(r.id==='data'){fx='data';media=curves(cm)}
+ else if(wl){fx='auto';media=`<div class="gr">${miniGraph(WORKFLOWS[wl.wf],cm,640,190)}</div>`}
  return `<article class="item proj fx-${fx}" data-room="${it.room}" ${st}>${media}<div class="p-txt"><h3 class="p-name">${spl(tr(p.name))}</h3><p class="p-status">${tr(p.status)}</p><p class="p-desc">${spw(tr(p.desc))}</p><p class="p-stack">${p.stack}</p><div class="p-links">${links}</div></div></article>`;
 }
 const slugOf=p=>(typeof p.name==='string'?p.name:p.name.fr).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
@@ -47,6 +64,7 @@ function render(){
  $('#cam').innerHTML=ITEMS.map(itemHTML).join('');
  $('#nav-list').innerHTML=REGIONS.map(r=>`<li><a href="#r-${r.id}">${tr(r.label)}</a></li>`).join('');
  if(world)world.place();
+ if(typeof cur!=='undefined'&&cur&&!$('#wf').hidden)openWf(cur);
 }
 function setLang(l){lang=l;if(typeof mapRoom!=='undefined')mapRoom=-9;try{localStorage.setItem('lang',l)}catch(e){}render();roomShown=-2}
 $('#btn-fr').addEventListener('click',()=>setLang('fr'));$('#btn-en').addEventListener('click',()=>setLang('en'));
@@ -59,6 +77,7 @@ document.addEventListener('click',e=>{
  if(c){const done=()=>{c.textContent=UI[lang].copied;setTimeout(()=>c.textContent=UI[lang].copy,1600)};
   const sel=()=>{const g=getSelection(),n=document.createRange();n.selectNodeContents(c.previousElementSibling);g.removeAllRanges();g.addRange(n)};
   try{navigator.clipboard.writeText(c.dataset.copy).then(done).catch(sel)}catch(x){sel()}return}
+ const w=e.target.closest('[data-wf]');if(w){e.preventDefault();try{location.hash=w.dataset.wf}catch(x){}openWf(w.dataset.wf);return}
  const a=e.target.closest('a[href^="#"]');
  if(a){e.preventDefault();const id=a.getAttribute('href').slice(1);let y=0;
   if(id!=='entree'){if(world){const i=REGIONS.findIndex(r=>'r-'+r.id===id);y=world.roomY(i)}else{const el=document.getElementById(id);y=el?el.getBoundingClientRect().top+scrollY-70:0}}
