@@ -44,9 +44,9 @@
     <div class="cf-h"><h3 id="cf-t"></h3><button id="cf-x" type="button"></button></div>
     <input type="hidden" name="access_key" value="5a348f45-44bb-45e7-a46a-d3f1ef32cc28">
     <input type="hidden" name="subject" value="Nouveau message — Portfolio Serge Folly Sanou">
-    <label for="cf-name" id="cf-ln"></label><input id="cf-name" name="name" type="text" autocomplete="name" required>
-    <label for="cf-email" id="cf-le"></label><input id="cf-email" name="email" type="email" autocomplete="email" required>
-    <label for="cf-msg" id="cf-lm"></label><textarea id="cf-msg" name="message" rows="5" required></textarea>
+    <label for="cf-name" id="cf-ln"></label><input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+    <label for="cf-email" id="cf-le"></label><input id="cf-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+    <label for="cf-msg" id="cf-lm"></label><textarea id="cf-msg" name="message" rows="5" maxlength="4000" required></textarea><input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" hidden>
     <button id="cf-s" type="submit"></button>
     <p id="cf-r" role="status"></p>
   </form>
